@@ -40,21 +40,21 @@
 // 	}
 // } 
 
-class Person{
-	int age = 90;
-	String name;
-	Person() {
-		this("na",2); //这点与对象名不同 对象名不能调用构造器
-		System.out.println("123"); //this使用构造器 用构造器中第一行this访问调用另一个构造器
-	}
-	Person(String n,int a) {
-		name = n;
-		age = a;
-	}
-}
-public class Test_3_14 {
-	public static void main(String[] args) {
-		Person p1 = new Person();
-		System.out.println(p1.age);
-	}
-} 
+// class Person{
+// 	int age = 90;
+// 	String name;
+// 	Person() {
+// 		this("na",2); //这点与对象名不同 对象名不能调用构造器
+// 		System.out.println("123"); //this使用构造器 用构造器中第一行this访问调用另一个构造器
+// 	}
+// 	Person(String n,int a) {
+// 		name = n;
+// 		age = a;
+// 	}
+// }
+// public class Test_3_14 {
+// 	public static void main(String[] args) {
+// 		Person p1 = new Person();
+// 		System.out.println(p1.age);
+// 	}
+// } 
