@@ -52,28 +52,33 @@ public class test3 {
 }
 
 
- class Employee {
+class Employee {
     private String name; // 员工姓名
     private int month; // 员工生日月
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public int getMonth() {
         return month;
     }
+
     public void setMonth(int month) {
         this.month = month;
     }
-class Date {
+
+    class Date {
 
         public int getMonth() {
             return 1;
         }
-}
+    }
+
     // 获取工资方法
     double getSalary(int month) {
         Date date = new Date();
@@ -85,8 +90,6 @@ class Date {
         }
     }
 }
-
-
 
 
 class SalariedEmployee extends Employee {
@@ -107,20 +110,22 @@ class SalariedEmployee extends Employee {
 }
 
 
-
- class HourlyEmployee extends Employee {
+class HourlyEmployee extends Employee {
     private double hourMoney; // 每小时的工资、
     private double hours; // 每月工作的小时数
 
     public double getHourMoney() {
         return hourMoney;
     }
+
     public void setHourMoney(double hourMoney) {
         this.hourMoney = hourMoney;
     }
+
     public double getHours() {
         return hours;
     }
+
     public void setHours(double hours) {
         this.hours = hours;
     }
@@ -138,7 +143,6 @@ class SalariedEmployee extends Employee {
 }
 
 
-
 class SalesEmployee extends Employee {
     private double saleCount; // 月销售额、
     private double royaltyRate; // 提成率
@@ -146,12 +150,15 @@ class SalesEmployee extends Employee {
     public double getSaleCount() {
         return saleCount;
     }
+
     public void setSaleCount(double saleCount) {
         this.saleCount = saleCount;
     }
+
     public double getRoyaltyRate() {
         return royaltyRate;
     }
+
     public void setRoyaltyRate(double royaltyRate) {
         this.royaltyRate = royaltyRate;
     }
@@ -163,13 +170,13 @@ class SalesEmployee extends Employee {
 }
 
 
-
 class BasedPlusSalesEmployee extends SalesEmployee {
     private double baseSalary; // 底薪
 
     public double getBaseSalary() {
         return baseSalary;
     }
+
     public void setBaseSalary(double baseSalary) {
         this.baseSalary = baseSalary;
     }
