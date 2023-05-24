@@ -15,7 +15,7 @@ public class Teacher extends Person {
         this.work_age = work_age;
     }
     public void teacher() {
-        System.out.println("我承诺，我会好好教课");
+        System.out.println(getName() + "承诺，我会好好教课");
     }
     public String play() { //方法重写 实现代码复用
         return super.play() + "象棋";
@@ -27,5 +27,10 @@ public class Teacher extends Person {
         teacher(); //调用子类方法
         System.out.println(play()); //调用子类方法 该方法重写父类方法已经实现复用
         //再次复用 打印爱好
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " work_age " + work_age;
     }
 }

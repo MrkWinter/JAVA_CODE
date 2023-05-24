@@ -44,4 +44,13 @@ public class Person {
                 + "年龄：" + age + "\n" + "性别：" + sex;
         //返回要打印的基本信息
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                '}';
+    }
 }

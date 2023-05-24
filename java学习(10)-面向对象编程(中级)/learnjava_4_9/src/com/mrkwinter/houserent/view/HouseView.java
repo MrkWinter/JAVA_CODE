@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class HouseView {
     private boolean loop = true;
     private char key = '1';
-    private HouseService houseService = new HouseService(1);//创建一个数组
+    private HouseService houseService = new HouseService(5);//创建一个数组
 
     public void mian_Menu() {
         do {
@@ -18,7 +18,7 @@ public class HouseView {
             System.out.println("\t\t1 新 增 房 屋 信 息");
             System.out.println("\t\t2 查 找 房 屋 信 息");
             System.out.println("\t\t3 删 除 房 屋 信 息");
-            System.out.println("\t\t3 修 改 房 屋 信 息");
+            System.out.println("\t\t4 修 改 房 屋 信 息");
             System.out.println("\t\t5 房 屋 列 表");
             System.out.println("\t\t6 退 出");
             System.out.println("输入你的选择:");
@@ -28,26 +28,24 @@ public class HouseView {
                     addHouseView();
                     break;
                 case '2':
-                    System.out.println("查找");
+                    selHouseView();
                     break;
                 case '3':
                     delHouseView();
                     break;
                 case '4':
-                    System.out.println("修改");
+                    modHouseView();
                     break;
                 case '5':
                     listHouseView();
                     break;
                 case '6':
-                    System.out.println("退出");
+                    exitView();
                     break;
                 default:
                     System.out.println("输入错误，请重新输入");
                     break;
             }
-            if (key == '6')
-                loop = false;
         } while (loop);
 
     }
@@ -98,9 +96,38 @@ public class HouseView {
         System.out.println("请输入删除房屋对应的编号");
         int input = Utility.readInt();
         System.out.println("确认要删除吗(无法恢复)y/n");
-        char isSure = Utility.readChar();
-        if (isSure == 'n')
+        char isSure = Utility.readConfirmSelection();
+        if (isSure == 'Y')
+            houseService.delHouse(input);
+    }
+
+    public void exitView() {
+        char c = Utility.readConfirmSelection();
+        if (c == 'Y')
+            loop = false;
+        System.out.println("退出成功");
+    }
+
+    //根据id查找
+    public void selHouseView() {
+        System.out.println("请输入需要查询的信息id：");
+        int id = Utility.readInt();
+        House objHouse = houseService.selHouse(id);
+        if (objHouse == null) {
+            System.out.println("根据id未查询到该信息");
             return;
-        houseService.delHouse(input);
+        }
+        System.out.println("该房屋信息为：" + objHouse.toString());
+    }
+
+    //改
+    public void modHouseView() {
+        System.out.println("请输入需要修改的信息id：");
+        int id = Utility.readInt();
+        if (houseService.modHouse(id)) {
+            System.out.println("修改成功");
+            return;
+        }
+        System.out.println("修改失败");
     }
 }

@@ -18,8 +18,13 @@ public class Test2 {
             System.out.println(season);
         }
         Season2 autumn2 = Season2.valueOf("AUTUMN");
+        //将字符串转换成枚举对象 要求字符串必须和已有的枚举常量名相同 否则报异常
         //valueOf 是Enum类中的一个静态方法 根据输入的字符串 根据对象名去到枚举类中查找到对应的枚举对象
         //然后返回该枚举对象的地址 若输入的对象名有误 则程序报错
+        System.out.println(Season2.AUTUMN.compareTo(Season2.SUMMER));
+        //compareTo 返回将两个枚举常量的编号相减的值
+        //等于0 两个枚举常量的值相同 小于0 第一个编号小于第二个编号 大于0 第二个编号大于第二个编号
+
     }
 
 

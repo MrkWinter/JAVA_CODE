@@ -1,6 +1,7 @@
 package com.mrkwinter.houserent.service;
 
 import com.mrkwinter.houserent.domain.House;
+import com.mrkwinter.houserent.utils.Utility;
 
 public class HouseService {
 
@@ -31,17 +32,53 @@ public class HouseService {
         houses[count++] = newHouse;
         System.out.println("-------添加成功------");
     }
-//!!!!!!!!!!!!!
     public void delHouse(int id) {
         if(!(id>=0&&id<=count)) {
             System.out.println("找不到对应编号");
             return;
         }
-        for (int i = id-1; i <count; i++) {
+        for (int i = id-1; i <count - 1; i++) {
             houses[i] = houses[i + 1];
+            houses[i].setId(i+1);
         }
-            houses[count--] = null;
+            houses[(count-- - 1)] = null;
         System.out.println("-----删除成功-----");
     }
-    //!!!!!!!!!!!!!!
+
+    public House selHouse(int id) {
+        for (int i = 0; i < count; i++) {
+            if(houses[i].getId() == id)
+                return houses[i];
+        }
+        return null;
+    }
+    public boolean modHouse(int id) {
+        House isModHouse = selHouse(id);
+        if(isModHouse == null) {
+            System.out.println("修改信息不存在");
+            return false;
+        }
+        System.out.println("请重新输入信息");
+        System.out.println("姓名("+isModHouse.getName()+"):");
+        String temp = Utility.readString(5,"");
+        if(!"".equals(temp))//等于空串不用修改
+        isModHouse.setName(temp);
+        System.out.println("电话("+isModHouse.getPhone()+"):");
+        temp = Utility.readString(5,"");
+        if(!"".equals(temp))//等于空串不用修改
+        isModHouse.setPhone(temp);
+        System.out.println("地址("+isModHouse.getAddress()+"):");
+        temp = Utility.readString(5,"");
+        if(!"".equals(temp))//等于空串不用修改
+        isModHouse.setAddress(temp);
+        System.out.println("租金("+isModHouse.getRent()+"):");
+        int temp2 = Utility.readInt(-1); //回车默认
+        if(temp2 != -1)//不用修改
+        isModHouse.setRent(temp2);
+        System.out.println("状态("+isModHouse.getState()+"):");
+        temp = Utility.readString(5,"");
+        if(!"".equals(temp))//等于空串不用修改
+        isModHouse.setState(temp);
+        return true;
+    }
 }
