@@ -1,0 +1,15 @@
+    public void fileReader() throws IOException {
+        FileReader fileReader = new FileReader("hello.txt");
+        //1. read单读
+        while (fileReader.read()!=-1) {
+            System.out.println((char)fileReader.read());
+        }
+        //2. read快读
+        char arr[] = new char[8];
+        int length;
+        while((length = fileReader.read(arr))!=-1) {
+            System.out.println(new String(arr,0,length));
+        }
+        fileReader.close();
+    }
+}
