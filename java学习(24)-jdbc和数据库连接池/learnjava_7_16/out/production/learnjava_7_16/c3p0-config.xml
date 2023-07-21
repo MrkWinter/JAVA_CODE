@@ -1,0 +1,21 @@
+<c3p0-config>
+    <!-- 默认配置 -->
+    <named-config name="test_c3p0">
+        <!--加载驱动-->
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <!--数据库url-->
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/db03</property>
+        <!--数据库用户名-->
+        <property name="user">root</property>
+        <!--数据库密码-->
+        <property name="password">xing123456</property>
+        <property name="initialPoolSize">5</property>
+        <property name="maxPoolSize">10</property>
+        <property name="minPoolSize">3</property>
+        <property name="maxIdleTime">60</property>
+        <property name="maxStatements">50</property>
+        <property name="acquireIncrement">1</property>
+        <property name="acquireRetryAttempts">5</property>
+        <property name="acquireRetryDelay">1000</property>
+    </named-config>
+</c3p0-config>
