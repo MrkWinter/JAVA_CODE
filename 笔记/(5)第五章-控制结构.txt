@@ -25,7 +25,7 @@ go to
 
 4.细节
 
-switch() 中的类型能是 byte char short int enum String 不能是double float boolean可以吗？
+switch() 中的类型能是 byte char short int enum String 不能是double float boolean？
 
 switch() 中的数据类型必须和case后跟的数据类型一致 或者是可以自动转换进行比较的数据
 

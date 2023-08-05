@@ -117,7 +117,7 @@ java生成随机数
 
 引入 java.util.Mach 引入包中类
 
-Math.random(100) + 1 生成1~100的随机数
+Math.random() * 100 + 1 生成1~100的随机数
 
 解释 Math.random（） 是一个静态方法 可以生成0 ~ 1 的double型数据
 
